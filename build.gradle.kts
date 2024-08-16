@@ -19,6 +19,11 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
 
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactive:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.7.3")
+    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.2.2")
+
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0")
 
     testImplementation(kotlin("test"))
