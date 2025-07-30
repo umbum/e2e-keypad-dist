@@ -20,7 +20,7 @@ class SampleReactiveService(
             .collectList()
             .block()!!
 
-        logger.info(results.toString())
+        logger.info("end runOnEventLoop")
         return results
     }
 

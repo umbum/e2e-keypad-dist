@@ -23,7 +23,7 @@ class SampleThreadPoolService(
 
         val results = futures.map { it.get() }
 
-        logger.info(results.toString())
+        logger.info("end runOnThreadPool")
         return results
     }
 

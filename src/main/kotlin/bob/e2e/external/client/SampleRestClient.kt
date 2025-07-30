@@ -3,19 +3,17 @@ package bob.e2e.external.client
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 import org.springframework.web.client.RestClient
-import java.time.Duration
 
 @Component
 class SampleRestClient(
     restClientBuilder: RestClient.Builder,
 ) {
     private val restClient: RestClient = restClientBuilder
-        .baseUrl("http://echo.jsontest.com")
+        .baseUrl("https://httpbin.org")
         .build()
 
     fun sample(): String {
-        Thread.sleep(Duration.ofSeconds(10))
-        return restClient.get().uri("/key/value/one/two")
+        return restClient.get().uri("/delay/10")
             .retrieve()
             .body(String::class.java)!!
     }

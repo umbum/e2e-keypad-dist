@@ -4,21 +4,19 @@ import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
 import reactor.core.publisher.Mono
-import java.time.Duration
 
 @Component
 class SampleWebClient(
     webClientBuilder: WebClient.Builder,
 ) {
     private val webClient: WebClient = webClientBuilder
-        .baseUrl("http://echo.jsontest.com")
+        .baseUrl("https://httpbin.org")
         .build()
 
     fun sample(): Mono<String> {
-        return webClient.get().uri("/key/value/one/two")
+        return webClient.get().uri("/delay/10")
             .retrieve()
             .bodyToMono(String::class.java)
-            .delayElement(Duration.ofSeconds(10))
     }
 
     companion object {
